@@ -16,9 +16,9 @@ for raster in rasters:
     'INPUT' : raster, 
     'MULTITHREADING' : False,
     'NODATA' : -9999, 
-    'OPTIONS' : '', 
+    'OPTIONS' : 'COMPRESS=LZW', 
     'OUTPUT' : os.path.join(dst_folder,f'{dst_name}.asc'),
-    'RESAMPLING' : 0, 
+    'RESAMPLING' : 1, 
     'SOURCE_CRS' : None, 
     'TARGET_CRS' : 'EPSG:32628',
     'TARGET_EXTENT' : None, 
@@ -26,4 +26,4 @@ for raster in rasters:
     'TARGET_RESOLUTION' : None}
     feedback = QgsProcessingFeedback()
     processing.runAndLoadResults('gdal:warpreproject',parameters,feedback=feedback)
-    print("Se ha reproyectado la capa" + ' ' + f'{dst_name}.asc')##
+    print("Se ha reproyectado la capa" + ' ' + f'{dst_name}.asc')
